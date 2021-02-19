@@ -1,0 +1,86 @@
+<meta charset="UTF-8">
+
+<input/>
+
+<button>Adivinhe o número de 0 a 10</button>
+
+<script>
+
+	function sorteio() {
+
+		return Math.round(Math.random() * 10);
+	}
+
+	function sorteioNumeros(quantidade) {
+
+		var segredos = [];
+		var numero = 1;
+
+		while(numero <= quantidade) {
+
+			var numeroAleatorio = sorteio();
+
+			if(numeroAleatorio !== 0) {
+
+				var acerto = false;
+
+				for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+					if(segredos[posicao] == numeroAleatorio) {
+
+						acerto = true;
+						break;
+					}
+				}
+
+				if(acerto == false) {
+
+					segredos.push(numeroAleatorio);
+					numero++;
+				}
+			}
+		}
+
+		return segredos;
+	}
+
+	var segredos = sorteioNumeros(3);
+	var input = document.querySelector("input");
+	var acerto = false;
+	
+	input.focus();
+
+	function verifica() {
+
+		if(input.value == "") {
+
+			alert("Digite um número de 0 a 10.");
+		} else {
+
+			for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+				acerto = false;
+
+				if(input.value == segredos[posicao]) {
+
+					alert("Você acertou!");
+					acerto = true;
+					break;
+				}
+			}
+
+			if(acerto == false) {
+
+				alert("Você errou!");
+			}
+		}
+
+		input.value = "";
+		input.focus();
+	}
+
+	var button = document.querySelector("button");
+
+	button.onclick = verifica;
+
+</script>

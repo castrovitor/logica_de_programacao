@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+
+<script>
+
+	function pulaLinha() {
+		document.write("<br>");
+	}
+
+	function imprime(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
+
+	var anoChegadaPortugueses = 1500;
+	var anoAtual = 2021;
+	var totalGeracoes = Math.round((anoAtual - anoChegadaPortugueses)/28);
+
+	imprime("O total de gerações é: " + totalGeracoes + " anos.");
+
+</script>

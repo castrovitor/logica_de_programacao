@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<script>
+
+	function pulaLinha() {
+		
+		document.write("<br><br>");
+	}
+
+	function imprime(frase) {
+		
+		document.write(frase);
+		pulaLinha();
+	}
+
+	var contador = 20;
+
+	while(contador >= 0) {
+
+		imprime(contador);
+		contador = contador - 1;
+	}
+
+	imprime("Fim.");
+
+
+
+</script>
